@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="fullscreen" manifest="/tabcat/offline/cache.manifest">
+  <head>
+    <title>FAQ (Functional Activities Questionaire)</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="../core/css/tabcat.css">
+    <link rel="stylesheet" href="css/alpaca.css">
+
+    <script src="../core/js/tabcat.js"></script>
+
+    <ignored sssssscript src="js/jquery-latest.min.js"></ignored>
+    <script src="js/jquery.tmpl.js"></script>
+    <script src="js/alpaca.js"></script>
+
+  </head>
+  <body>
+
+      
+  <div id="formFAQ"></div>
+
+
+<script>
+var lava_error_codes = [
+			"-9",
+			"-8",
+			"-7",
+			"-6",
+			"-4",
+			"-3",
+			"-2",
+			"-1",
+			"0",
+			"1",
+			"2",
+			"3"];
+var lava_error_labels = [ 
+			"Missing Data",
+			"Unused Variable",
+			"Incomplete",
+			"Logical Skip",
+			"Refused",
+			"Alternate Test Given",
+			"Situational Factor",
+			"Patient Factor",
+			"0",
+			"1",
+			"2",
+			"3"];
+
+$(function() {
+    $("#formFAQ").alpaca({
+	"schema": {
+	    "title": "Data",
+	    "description": "Frequently Asked Questions",
+	    "type": "object",
+	    "properties": {
+		"instrument_notes_tracking_" : {
+		    "type": "string",
+		    "title": "Tracking Details"
+		},
+		"instrument_careId" :{
+		    "type" : "string",
+		    "title": "Informant",
+		    "enum" : [ 
+			"Logical Skip",
+			"Incomplete",
+			"Unused Variable",
+			"Missing Data"    ]},
+
+		"acs_textbox_instrument_checks" :{
+		    "type" : "string",
+		    "title": "1. Writing checks, paying bills, balancing a checkbook",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_tax" :{
+		    "type" : "string",
+		    "title":  "2. Assembling tax records, businees affairs, papers",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_shop" :{
+		    "type" : "string",
+		    "title":   "3. Shopping alone for clothes, household necessities, or groceries",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_play" :{
+		    "type" : "string",
+		    "title":   "4. Playing a game or skill, working on a hobby",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_stove" :{
+		    "type" : "string",
+		    "title":   "5. Heating water, making a cup of coffee, turning off the stove",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_meal" :{
+		    "type" : "string",
+		    "title":   "6. Preparing a balanced meal",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_events" :{
+		    "type" : "string",
+		    "title":   "7. Keeping track of current events",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_attn" :{
+		    "type" : "string",
+		    "title":   "8. Paying attention to, understanding, discussing TV, book, magazine",
+		    "enum" : lava_error_codes},
+		"acs_textbox_instrument_appt" :{
+		    "type" : "string",
+		    "title":   "9. Remembering appointments, family occasions, holidays, medication",
+		    "enum" : lava_error_codes},
+
+		"acs_textbox_instrument_travel" :{
+		    "type" : "string",
+		    "title":   "10. Traveling out of the neighborhood, driving, arranging to take buses",
+		    "enum" : lava_error_codes},
+
+		"instrument_totalOnly" :{
+		    "type" : "boolean",
+		    "title":   "Record FAQ Total Only",
+		},
+		"acs_textbox_instrument_total" :{
+		    "type" : "string",
+		    "title":   "FAQ Total",
+		    "enum" : [ 
+			"Missing Data",
+			"Unused Variable",
+			"Incomplete",
+			"Logical Skip",
+			"selected",
+			"Cannot Total",
+			"Refused",
+			"Alternate Test Given",
+			"Situational Factor",
+			"Patient Factor",
+			"0",
+			"1",
+			"2",
+			"3",
+			"4",
+			"5",
+			"6",
+			"7",
+			"8",
+			"9",
+			"10",
+			"11",
+			"12",
+			"13",
+			"14",
+			"15",
+			"16",
+			"17",
+			"18",
+			"19",
+			"20",
+			"21",
+			"22",
+			"23",
+			"24",
+			"25",
+			"26",
+			"27",
+			"28",
+			"29",
+			"30"]},
+
+		"instrument_notes_data_" : {
+		    "type": "string",
+		    "title": "Notes"
+		}
+
+
+	    }
+	},
+	"options": {
+            "renderForm": true,
+            "form": {
+                "attributes": {
+                    "action": "#",
+                    "method": "post"
+                },
+                "buttons": {
+                    "submit": {"disabled":"disabled"},
+                    "reset": {}
+                }
+            },
+            "fields": {
+		"acs_textbox_instrument_checks" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_tax" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_shop" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_play" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_stove" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_meal" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_events" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_attn" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_appt" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_travel" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_total" :{   "optionLabels": lava_error_labels },
+		"acs_textbox_instrument_travel" : { "optionLabels": lava_error_labels },
+		"instrument_notes_tracking_" :{
+		    "type":"textarea"
+		},
+		"instrument_totalOnly" :{
+		    "type":"checkbox"
+		},
+		"instrument_notes_data_" :{
+		    "type":"textarea"
+		}
+            }
+	}
+    });
+});
+</script>
+     
+    <script src="js/faq.js"></script>
+    <script>initFAQPage();</script>
+    </body>
+</html>

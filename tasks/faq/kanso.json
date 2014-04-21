@@ -1,0 +1,25 @@
+{
+    "name": "faq",
+    "version": "0.6.3",
+    "description": "Functional Activities Questionaire",
+    "attachments": [
+        "css/alpaca.css",
+        "img/icon.png",
+        "js/faq.js",
+        "js/jquery.tmpl.js",
+        "js/alpaca.js",
+        "faq.html"
+   ],
+    "dependencies": {
+        "attachments": null
+    },
+    "tabcat": {
+        "tasks": {
+            "faq": {
+                "description": "FAQ",
+                "icon": "img/icon.png",
+                "start": "faq.html"
+             }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="fullscreen" manifest="/tabcat/offline/cache.manifest">
+  <head>
+    <title>FAQ (Frequently Asked Questions)</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="../core/css/tabcat.css">
+    <link rel="stylesheet" href="css/alpaca.css">
+  </head>
+  <body>
+    <script src="../core/js/tabcat.js"></script>
+    <script src="../../core/js/vendor/alpaca.js"></script>
+
+    <div id="faq_form"></div>
+     
+    <script type="text/javascript">
+      $(function() {
+          $("#faq_form").alpaca({
+              "schema": {
+		  "title": "Frequently Asked Questions",
+		  "description": "faqs",
+		  "type": "object",
+		  "properties": {
+		      "name": {
+			  "type": "string",
+			  "title": "Name"
+		      },
+		      "ranking": {
+			  "type": "string",
+			  "title": "Ranking",
+			  "enum": ['excellent', 'not too shabby', 'alpaca built my hotrod']
+		      }
+		  }
+	      },
+	      "options": {
+		  "renderForm":true,
+		  "form":{
+		      "attributes":{
+			  "action":"../../endpoints/echo.php",
+			  "method":"post"
+		      },
+		      "buttons":{
+			  "submit":{},
+			  "reset":{}
+		      }
+		  },
+		  "fields":{
+		      "name":{
+			  "hideInitValidationError" : true
+		      },
+		      "photo":{
+			  "type":"file",
+			  "styled": true
+		      },
+		      "member":{
+			  "rightLabel":"Alpaca Club Member"
+		      },
+		      "address":{
+			  "type":"address",
+			  "addressValidation":true
+		      }       
+		  }
+	      }
+	  });
+      });
+    </script>
+    <script src="js/faq.js"></script>
+    <script>initCloseEncounterPage();</script>
+  </body>
+</html>
